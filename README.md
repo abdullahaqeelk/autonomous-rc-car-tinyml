@@ -1,4 +1,4 @@
-# SUDO_CAR
+# Autonomous RC Car — End-to-End TinyML Steering on a Raspberry Pi Zero 2W
 AUTONOMOUS CAR USING NVIDIA PILOTNET
 
 STEP 1:
