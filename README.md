@@ -9,7 +9,7 @@ An RC car that steers itself using a **PilotNet CNN** running entirely on a **Ra
 
 | Top view | Front / camera view | Side isometric view |
 | --- | --- | --- |
-| ![Top view](docs/images/vehicle-top.png) | ![Front view](docs/images/vehicle-front.png) | ![Isometric view](docs/images/vehicle-isometric.png) |
+| ![Top view](vehicle-top.png) | ![Front view](vehicle-front.png) | ![Isometric view](vehicle-isometric.png) |
 
 ---
 
@@ -40,7 +40,7 @@ An RC car that steers itself using a **PilotNet CNN** running entirely on a **Ra
 
 ## How it works
 
-![System architecture](docs/images/system-architecture.jpg)
+![System architecture](system-architecture.jpg)
 
 The system runs in three phases:
 
@@ -48,16 +48,16 @@ The system runs in three phases:
 2. **Training (PC)** — `train.py` crops, resizes and augments the frames, trains PilotNet, and exports a `.tflite` model. `validation.py` replays a held-out run through the model to check it before deployment.
 3. **Autonomous driving (Pi)** — `autonomous_drive.py` feeds live frames to the model and drives the steering servo from its predictions.
 
-![Classic pipeline vs end-to-end learning](docs/images/control-approaches.jpg)
+![Classic pipeline vs end-to-end learning](control-approaches.jpg)
 
 ## Hardware
 
 | Component | Role | |
 | --- | --- | --- |
-| Raspberry Pi Zero 2W | Camera capture, model inference, GPIO control | ![Pi Zero 2W](docs/images/raspberry-pi-zero-2w.jpg) |
-| Raspberry Pi Camera Module v1.3 | Front-facing camera, angled down at the track | ![Camera](docs/images/camera-module.jpg) |
-| L298N dual H-bridge | Drives the rear motor | ![L298N](docs/images/l298n-driver.jpg) |
-| N20 micro gear motor | Propulsion | ![N20 motor](docs/images/n20-motor.jpg) |
+| Raspberry Pi Zero 2W | Camera capture, model inference, GPIO control | ![Pi Zero 2W](raspberry-pi-zero-2w.jpg) |
+| Raspberry Pi Camera Module v1.3 | Front-facing camera, angled down at the track | ![Camera](camera-module.jpg) |
+| L298N dual H-bridge | Drives the rear motor | ![L298N](l298n-driver.jpg) |
+| N20 micro gear motor | Propulsion | ![N20 motor](n20-motor.jpg) |
 | Steering servo | Front-wheel steering | |
 | USB/Bluetooth game controller | Manual driving and throttle | |
 
@@ -83,7 +83,7 @@ Servo pulse width is calibrated to **1300–1900 µs**; adjust `min_pulse_width`
 ├── validation.py         # PC: evaluate a .tflite model on a held-out run and plot it
 ├── autonomous_drive.py   # Pi: real-time inference and steering
 ├── REPORT.pdf            # Full project report
-└── docs/images/          # Figures used in this README
+├── *.jpg / *.png         # Figures used in this README
 ```
 
 ## Setup
